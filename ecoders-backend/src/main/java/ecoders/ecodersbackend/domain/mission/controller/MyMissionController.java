@@ -88,6 +88,7 @@ public class MyMissionController {
     /**
      * 나만의 미션 리스트 조회 API
      */
+    // Mission에서 Type이 My_Mission인 것만
     // 👴 API 수정!!!
     @GetMapping("/my_missions/list")
     public ResponseEntity<List<MemberMissionDto>> getMyMissions(

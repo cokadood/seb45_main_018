@@ -7,6 +7,7 @@ import ecoders.ecodersbackend.domain.mission.dto.MissionPatchDto;
 import ecoders.ecodersbackend.domain.mission.dto.MissionPostDto;
 import ecoders.ecodersbackend.domain.mission.entity.MemberMission;
 import ecoders.ecodersbackend.domain.mission.entity.Mission;
+import ecoders.ecodersbackend.domain.mission.entity.MissionType;
 import ecoders.ecodersbackend.domain.mission.repository.MemberMissionRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +36,7 @@ public class MyMissionService {
 
         Mission mission = new Mission();
         mission.setText(postDto.getText());
+        mission.setMissionType(MissionType.MY_MISSION);
 
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
@@ -94,6 +96,7 @@ public class MyMissionService {
                 .orElseThrow(() -> new IllegalArgumentException("미션을 찾을 수 없습니다."));
 
         memberMission.setCompleted(isCompleted);
+        memberMission.setCompletedAt(LocalDateTime.now());
 
         log.info("미션 완료 설정: missionId={}, isCompleted={}", missionId, isCompleted);
     }

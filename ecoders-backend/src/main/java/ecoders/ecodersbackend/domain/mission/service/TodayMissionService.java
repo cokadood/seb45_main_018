@@ -1,10 +1,12 @@
 package ecoders.ecodersbackend.domain.mission.service;
 
 import ecoders.ecodersbackend.domain.member.entity.Member;
+import ecoders.ecodersbackend.domain.member.repository.MemberRepository;
 import ecoders.ecodersbackend.domain.member.service.MemberService;
 import ecoders.ecodersbackend.domain.mission.dto.TodayMissionResponseDto;
 import ecoders.ecodersbackend.domain.mission.entity.MemberMission;
 import ecoders.ecodersbackend.domain.mission.entity.Mission;
+import ecoders.ecodersbackend.domain.mission.entity.MissionType;
 import ecoders.ecodersbackend.domain.mission.repository.MemberMissionRepository;
 import ecoders.ecodersbackend.domain.mission.repository.MissionRepository;
 import ecoders.ecodersbackend.domain.mission.util.TodayMissionData;
@@ -14,7 +16,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -25,24 +29,26 @@ public class TodayMissionService {
     private final MemberMissionRepository memberMissionRepository;
     private final TodayMissionData todayMissionData;
     private final MemberService memberService;
+    private final MemberRepository memberRepository;
+
+    private List<Mission> cachedTodayMissions = new ArrayList<>();
+    private LocalDateTime lastUpdateTime = null;
+
 
     /**
      * 오늘의 미션이 자정에 리셋되도록
      */
     @Scheduled(cron = "0 0 0 * * *")
-    public void updateTodayMission() {
-//        List<Mission> todayMissions = getTodayMission();
 
-//        missionRepository.saveAll(todayMissions);
-    }
 
     /**
      * 오늘의 미션(getMission)에서 사용자가 설정한 개수만큼 랜덤으로 가져올 때 필요함
      */
     @Transactional
     public List<Mission> getTodayMission(UUID memberId, int size) {
+
         List<Mission> missionList = new ArrayList<>();
-        List<Mission> allMissions = missionRepository.findAll();
+        List<Mission> allMissions = missionRepository.findByMissionType(MissionType.TODAY_MISSION);
 
         Random random = new Random();
         int missionCount = allMissions.size();
@@ -62,11 +68,11 @@ public class TodayMissionService {
                 memberMissionRepository.save(memberMission);
 
                 allMissions.remove(randomIndex);
-
             }
         }
         return missionList;
     }
+
 
     /**
      * 오늘의 미션 수행 완료 및 취소

@@ -70,13 +70,12 @@ public class TodayMissionController {
             @PathVariable("mission_id") Long missionId,
             @RequestBody Boolean iscompleted,
             @RequestHeader(HEADER_AUTHORIZATION) String accessToken) throws IOException {
-        log.info("message");
+
         UUID memberId = getMemberIdFromAccessToken(accessToken);
 
         MemberMission memberMission = memberMissionRepository.findByMemberIdAndMissionId(memberId, missionId);
 
         if (memberMission != null) {
-            log.info("message2");
             memberMission.setCompleted(iscompleted);
             memberMissionRepository.save(memberMission);
         }
