@@ -10,7 +10,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class TodayMissionResponseDto {
 
-    private Long id;
+    private Long today_mission_id;
     private String text;
     private boolean completed;
     private UUID memberId;

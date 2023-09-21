@@ -53,7 +53,7 @@ public class TodayMissionController {
         List<TodayMissionResponseDto> responseDtos = new ArrayList<>();
         for (Mission mission : todayMissionList) {
             TodayMissionResponseDto responseDto = new TodayMissionResponseDto();
-            responseDto.setId(mission.getId());
+            responseDto.setToday_mission_id(mission.getId());
             responseDto.setText(mission.getText());
             responseDto.setMemberId(memberId);
             responseDtos.add(responseDto);

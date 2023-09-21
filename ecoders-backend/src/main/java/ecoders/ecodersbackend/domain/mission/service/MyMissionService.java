@@ -9,6 +9,7 @@ import ecoders.ecodersbackend.domain.mission.entity.MemberMission;
 import ecoders.ecodersbackend.domain.mission.entity.Mission;
 import ecoders.ecodersbackend.domain.mission.entity.MissionType;
 import ecoders.ecodersbackend.domain.mission.repository.MemberMissionRepository;
+import ecoders.ecodersbackend.domain.mission.repository.MissionRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,7 @@ public class MyMissionService {
 
     private final MemberMissionRepository memberMissionRepository;
     private final MemberRepository memberRepository;
+    private final MissionRepository missionRepository;
 
     /**
      * 나만의미션 생성
@@ -79,7 +81,7 @@ public class MyMissionService {
      * 나만의 미션 전체 조회
      */
     public List<MemberMissionDto> getAllMissions() {
-        List<MemberMission> missions = memberMissionRepository.findAll();
+        List<MemberMission> missions = memberMissionRepository.findByMissionMissionType(MissionType.MY_MISSION);
 
         return missions.stream()
                 .map(this::mapToMemberMissionDto)
@@ -123,7 +125,7 @@ public class MyMissionService {
     @Transactional
     public void deleteAllMission(UUID memberId) {
 
-        memberMissionRepository.deleteByMemberId(memberId);
+        memberMissionRepository.deleteByMissionMissionType(MissionType.MY_MISSION);
 
     }
 
@@ -152,7 +154,8 @@ public class MyMissionService {
 
     private MemberMissionDto mapToMemberMissionDto(MemberMission memberMission) {
         MemberMissionDto memberMissionDto = new MemberMissionDto();
-        memberMissionDto.setId(memberMission.getMission().getId());
+
+        memberMissionDto.setId(memberMission.getId());
         memberMissionDto.setText(memberMission.getMission().getText());
         memberMissionDto.setCreatedAt(memberMission.getCreatedAt());
         memberMissionDto.setCompletedAt(memberMission.getCompletedAt());

@@ -13,12 +13,16 @@ import java.util.UUID;
 @Setter
 @Builder
 @AllArgsConstructor
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"member_id", "mission_id"})}) //중복방지
 @Entity
 public class MemberMission {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
+    private String text;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")

@@ -22,6 +22,7 @@ public class Mission {
     @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
     private List<MemberMission> memberMission;
 
+    @Column(name = "mission_type")
     @Enumerated(EnumType.STRING)
     private MissionType missionType;
 

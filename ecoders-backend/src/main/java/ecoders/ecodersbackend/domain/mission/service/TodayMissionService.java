@@ -46,7 +46,6 @@ public class TodayMissionService {
      * 오늘의 미션(getMission)에서 사용자가 설정한 개수만큼 랜덤으로 가져올 때 필요함
      */
     @Transactional
-    @Cacheable("missionListCache")
     public List<Mission> getTodayMission(UUID memberId, int size) {
 
         List<Mission> missionList = new ArrayList<>();

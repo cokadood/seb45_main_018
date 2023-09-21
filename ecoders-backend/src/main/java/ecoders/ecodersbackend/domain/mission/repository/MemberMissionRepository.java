@@ -20,7 +20,7 @@ public interface MemberMissionRepository extends JpaRepository<MemberMission, Lo
     Optional<MemberMission> findByIdAndMemberId(Long missionId, UUID memberId);
 
     // 나만의 미션 전체 삭제시
-    void deleteByMemberId(UUID memberId);
+    void deleteByMissionMissionType(MissionType missionType);
 
     // findByMemberIdAndMissionId 메서드 정의
     MemberMission findByMemberIdAndMissionId(UUID memberId, Long missionId);
@@ -28,4 +28,5 @@ public interface MemberMissionRepository extends JpaRepository<MemberMission, Lo
     List<MemberMission> findByMissionMissionTypeAndCompletedAndCompletedAtBetween(
         MissionType missionType, boolean completed, LocalDateTime startDate, LocalDateTime endDate);
 
+    List<MemberMission> findByMissionMissionType(MissionType missionType);
 }

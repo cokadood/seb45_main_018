@@ -46,7 +46,7 @@ public class MyMissionController {
         MissionPostDto.Response response = missionService.createMission(postDto, memberId);
 
         MissionPostDto.Response responseDto = new MissionPostDto.Response(
-                response.getId(),
+                response.getMy_mission_id(),
                 response.getText(),
                 response.getCreatedAt(),
                 response.getModifiedAt(),

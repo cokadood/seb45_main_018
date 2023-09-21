@@ -19,7 +19,7 @@ public class MissionPostDto {
     @AllArgsConstructor
     public static class Response {
 
-        private final Long id;
+        private final Long my_mission_id;
         private final String text;
         private final LocalDateTime createdAt;
         private final LocalDateTime modifiedAt;
