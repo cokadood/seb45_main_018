@@ -11,7 +11,8 @@ CodeStates 45기 Main-Project 018
 ## 📌 팀소개
 |조은별|이민수|백아름|양연주|양진호|강석완|
 |:--:|:--:|:--:|:--:|:--:|:--:|
-|<img src="https://media.discordapp.net/attachments/1144091288887623704/1153734704068034560/u1f3a7_u1f30d.png" width="80" height="80" />|<img src="https://media.discordapp.net/attachments/1144091288887623704/1153734530474180658/image.png" width="80" height="80" />|<img src="https://media.discordapp.net/attachments/1144091288887623704/1153734621238923325/u1f431_u1f30d.png" width="80" height="80" />|<img src="https://media.discordapp.net/attachments/1144091288887623704/1153733452814897152/image.png" width="80" height="80" />|<img src="https://media.discordapp.net/attachments/1144091288887623704/1153734899816222751/image.png" width="80" height="80" />|<img src="https://media.discordapp.net/attachments/1144091288887623704/1153735398166642838/u1f92b_u1f30d.png" width="80" height="80" />|
+|<img src="https://media.discordapp.net/attachments/1144091288887623704/1153734704068034560/u1f3a7_u1f30d.png" width="80" height="80" />
+|<img src="https://i.namu.wiki/i/KKpsf51wey2uc_tK5Ti0QYl9fjKnGga6ZScbLskTDwRLIMDVFVi49hdgQeaej205E0AMTvrd7sNcmNf_2L8UITKTXG_UStmeFeTl2Tip7hYIntTl7ADKxVOyl87CSxquoiIDotvaF7ps2Rrer2FxsQ.webp" width="80" height="80" />|<img src="https://media.discordapp.net/attachments/1144091288887623704/1153734621238923325/u1f431_u1f30d.png" width="80" height="80" />|<img src="https://media.discordapp.net/attachments/1144091288887623704/1153733452814897152/image.png" width="80" height="80" />|<img src="https://media.discordapp.net/attachments/1144091288887623704/1153734899816222751/image.png" width="80" height="80" />|<img src="https://media.discordapp.net/attachments/1144091288887623704/1153735398166642838/u1f92b_u1f30d.png" width="80" height="80" />|
 |BE(팀장)|FE(부팀장)|FE|FE|BE|BE|
 
 <br>
